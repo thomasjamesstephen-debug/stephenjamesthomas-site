@@ -1,0 +1,25 @@
+# Mac system files
+.DS_Store
+**/.DS_Store
+
+# Source files / archives not needed for the live site
+videos/zARCHIVE/
+
+# Full-quality video masters that exceed GitHub's 100MB per-file limit.
+# The site uses the compressed tile versions in videos/tiles/ instead.
+# Eventually the full versions will live on Vimeo / Cloudflare Stream for click-to-play.
+# Keep ONLY the hero reel (it's small enough) — everything else excluded.
+videos/full/*
+!videos/full/Director_Reel_2026_Stephen_James_Thomas_SHORT.mp4
+
+# Photoshop / screenshot dumps from the stills folder — not used on the site
+videos/SJT Website 2026 Stills/Dots.psd
+videos/SJT Website 2026 Stills/Bubbles.jpg
+videos/SJT Website 2026 Stills/Screenshot*.png
+videos/SJT Website 2026 Stills/Screenshot*.PNG
+
+# Old mood mockups from the design phase (no longer needed for production)
+mood_A_brutal.html
+mood_B_cinematic.html
+mood_C_chrome.html
+START_HERE.html

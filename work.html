@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Stephen James Thomas</title>
+<meta name="description" content="Selected work: AI-generated ads, cinematic trailers, social campaigns, and design. Smile 2, Doritos, DraftKings, Hyundai, Genesis, Instagram, TikTok, Paramount, Universal, Marvel, Super Bowls.">
+<meta property="og:title" content="Work — Stephen James Thomas">
+<meta property="og:description" content="Selected work in AI, film, social, and design.">
+<meta property="og:image" content="https://img1.wsimg.com/isteam/ip/c4a8f62f-b64a-4068-813d-58c42c853ae6/hf_20260301_074450_5ca5c105-e984-43ba-be63-c4.jpeg">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A'/%3E%3Ctext x='50' y='72' font-family='Arial Black' font-size='80' fill='%23FF4A1C' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ============ WORK PAGE ============ */
+  .work-hero {
+    padding: 160px var(--pad-x) 60px;
+    border-bottom: 1px solid var(--grey);
+  }
+  .work-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(60px, 12vw, 200px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  .work-hero h1 .accent { color: var(--orange); }
+  .work-hero .work-meta {
+    margin-top: 32px;
+    display: flex; justify-content: space-between; align-items: end;
+    flex-wrap: wrap; gap: 24px;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--cream-dim);
+  }
+  .work-hero .count {
+    color: var(--orange);
+    font-family: var(--font-display);
+    font-size: 32px;
+    letter-spacing: -0.02em;
+  }
+  .work-hero .work-lede {
+    max-width: 580px;
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.6;
+    color: var(--cream);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  /* sticky filter bar */
+  .filter-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--grey);
+    padding: 16px var(--pad-x);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 20px; flex-wrap: wrap;
+  }
+  .filters {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .filters button {
+    color: var(--cream); text-decoration: none;
+    padding: 8px 14px;
+    border: 1px solid var(--grey);
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .filters button.active { background: var(--orange); border-color: var(--orange); color: var(--bg); font-weight: 700; }
+  .filters button:hover:not(.active) { border-color: var(--orange); color: var(--orange); }
+  .filter-count {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--cream-dim);
+  }
+  .filter-count strong { color: var(--orange); }
+
+  /* the big grid */
+  section.work-grid-section {
+    padding: 40px var(--pad-x) 100px;
+  }
+  .tile { animation: tileIn .6s cubic-bezier(.22,.61,.36,1) backwards; }
+  .tile.hidden { display: none; }
+  @keyframes tileIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* archive header divider for chunks */
+  .archive-chunk-header {
+    grid-column: 1 / -1;
+    padding: 60px 0 24px;
+    border-bottom: 1px solid var(--grey);
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 12px;
+  }
+  .archive-chunk-header h3 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 56px);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+  }
+  .archive-chunk-header .label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--orange);
+  }
+
+  /* tablet (iPad portrait / small laptop) */
+  @media (max-width: 1024px) {
+    .work-hero { padding: 140px 32px 50px; }
+    .filter-bar { padding: 14px 32px; }
+    section.work-grid-section { padding: 32px 32px 80px; }
+  }
+
+  @media (max-width: 760px) {
+    .work-hero { padding: 110px var(--pad-x-mobile) 40px; }
+    .work-hero .work-meta { flex-direction: column; align-items: start; }
+    .filter-bar { padding: 12px var(--pad-x-mobile); }
+    section.work-grid-section { padding: 24px var(--pad-x-mobile) 60px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="mark" href="index.html">SJT<span class="dot">.</span></a>
+  <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">Menu</button>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="work.html" class="active">Work</a>
+    <a href="about.html">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ============ WORK HERO ============ -->
+<section class="work-hero">
+  <h1 data-reveal>Selected<br>Work<span class="accent">.</span></h1>
+  <div class="work-meta" data-reveal data-reveal-delay="1">
+    <p class="work-lede">
+      A working archive — trailers, promos, social cuts, AI-generated spots, campaign design, and the personal experiments that feed the commercial work. Filter by discipline. Click any tile.
+    </p>
+    <div class="count" id="visibleCount">25 pieces</div>
+  </div>
+</section>
+
+<!-- ============ STICKY FILTER ============ -->
+<div class="filter-bar">
+  <div class="filters" id="filters">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="ai">AI</button>
+    <button data-filter="film">Film & Trailer</button>
+    <button data-filter="social">Social</button>
+    <button data-filter="design">Design</button>
+    <button data-filter="personal">Personal</button>
+  </div>
+  <div class="filter-count">Showing <strong id="showingNum">25</strong> of 25</div>
+</div>
+
+<!-- ============ THE BIG GRID ============ -->
+<section class="work-grid-section">
+  <div class="bento" id="workGrid">
+
+    <!-- New: piñata (ultra-wide cinematic) + runaway — REAL FILM -->
+    <a class="tile wide" href="#" data-cat="film">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/pi%C3%B1ata_SHORTER.jpg">
+        <source src="videos/tiles/pi%C3%B1ata_SHORTER.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Piñata</span>Film</div>
+    </a>
+    <a class="tile landscape" href="#" data-cat="film">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/runaway_v1%20SHORTER.jpg">
+        <source src="videos/tiles/runaway_v1%20SHORTER.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Runaway</span>Music Video</div>
+    </a>
+
+    <!-- Strong open: DraftKings Mission Control + DoorDash AI + BLOW UPS Florida Man -->
+    <a class="tile landscape" href="#" data-cat="film social ai">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/DK_MISSIONCONTROL_FINAL.jpg">
+        <source src="videos/tiles/DK_MISSIONCONTROL_FINAL.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">DraftKings</span>Mission Control AI</div>
+    </a>
+    <a class="tile vertical" href="#" data-cat="ai social">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/DoorDash_AI_TT_2026_0205_SJT_Farmer_v1.jpg">
+        <source src="videos/tiles/DoorDash_AI_TT_2026_0205_SJT_Farmer_v1.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Doordash</span>Farmer AI</div>
+    </a>
+    <a class="tile tall" href="#" data-cat="personal ai">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/IIC_FLORIDAMAN_01%20FINAL.jpg">
+        <source src="videos/tiles/IIC_FLORIDAMAN_01%20FINAL.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">IIC</span>Florida Man AI</div>
+    </a>
+
+    <!-- Visual centerpiece: Malibu Rum wide -->
+    <a class="tile wide" href="#" data-cat="film design">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/Malibu%20Rum%20Tough%20Nut.jpg">
+        <source src="videos/tiles/Malibu%20Rum%20Tough%20Nut.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Malibu Rum</span>Tough Nut</div>
+    </a>
+    <a class="tile vertical" href="#" data-cat="ai film personal">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/Zolloro_02_Dracula_2026_0512_v1.jpg">
+        <source src="videos/tiles/Zolloro_02_Dracula_2026_0512_v1.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Zolloro</span>Dracula AI</div>
+    </a>
+
+    <!-- TikTok / Social row -->
+    <a class="tile vertical" href="#" data-cat="social">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/MichelobUltra_01_TT_2026_0115_02_v01.jpg">
+        <source src="videos/tiles/MichelobUltra_01_TT_2026_0115_02_v01.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Michelob Ultra</span>Winter Olympics 2026</div>
+    </a>
+    <a class="tile tall" href="#" data-cat="social">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/SierraNevada_01_TT_2024_1125_06_Golden_v03.jpg">
+        <source src="videos/tiles/SierraNevada_01_TT_2024_1125_06_Golden_v03.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Sierra Nevada</span>Golden Trail</div>
+    </a>
+    <a class="tile square" href="#" data-cat="social film">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/VRBO_Symphony%20Remix_TT_AD_2025_114_01_TofinoCabin_V02.jpg">
+        <source src="videos/tiles/VRBO_Symphony%20Remix_TT_AD_2025_114_01_TofinoCabin_V02.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">VRBO</span>Symphony</div>
+    </a>
+
+    <!-- AI / Brand row -->
+    <a class="tile landscape" href="#" data-cat="ai film">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/BaloneyBrains_YT_02_MOTO_2026_0418_v1.jpg">
+        <source src="videos/tiles/BaloneyBrains_YT_02_MOTO_2026_0418_v1.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Baloney Brains</span>Motorcycle AI</div>
+    </a>
+    <a class="tile vertical" href="#" data-cat="social ai">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/TTCX-MN_CODM_A-Skit-Reactions-HandheldThrills-1_v_9x16_22s_EN_251108.jpg">
+        <source src="videos/tiles/TTCX-MN_CODM_A-Skit-Reactions-HandheldThrills-1_v_9x16_22s_EN_251108.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Call of Duty Mobile</span>TikTok</div>
+    </a>
+
+    <!-- Film/Trailer block -->
+    <a class="tile landscape" href="#" data-cat="film">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/smile_v1%20%281080p%29.jpg">
+        <source src="videos/tiles/smile_v1%20%281080p%29.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Smile</span>Trailer Tease</div>
+    </a>
+    <a class="tile landscape" href="#" data-cat="film social">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/teenage_mutant_ninja_turtles_v1%20%281080p%29.jpg">
+        <source src="videos/tiles/teenage_mutant_ninja_turtles_v1%20%281080p%29.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">TMNT</span>Social Cut</div>
+    </a>
+    <a class="tile landscape" href="#" data-cat="film social">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/scream_vi_-_day_in_my_life_v1%20%281080p%29.jpg">
+        <source src="videos/tiles/scream_vi_-_day_in_my_life_v1%20%281080p%29.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Scream VI</span>Day in My Life</div>
+    </a>
+
+    <!-- DraftKings TikTok variant (kept: Huff n' Puff only; Mission Control variants removed per Stephen) -->
+    <a class="tile tall" href="#" data-cat="social ai">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/DK_84_TT_2026_0112_HuffnMorePuff_Pig_v2.jpg">
+        <source src="videos/tiles/DK_84_TT_2026_0112_HuffnMorePuff_Pig_v2.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">DraftKings</span>Huff N' More Puff AI</div>
+    </a>
+
+    <!-- DTF AI series -->
+    <a class="tile vertical" href="#" data-cat="ai">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/DTF_A_HERO_04_2026_0410_v1.jpg">
+        <source src="videos/tiles/DTF_A_HERO_04_2026_0410_v1.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Jiffy</span>DTF AI</div>
+    </a>
+    <a class="tile tall" href="#" data-cat="ai">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/DTF_B_LIFESTYLE_S06_2026_0410_v1.jpg">
+        <source src="videos/tiles/DTF_B_LIFESTYLE_S06_2026_0410_v1.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Jiffy</span>DTF AI</div>
+    </a>
+    <a class="tile vertical" href="#" data-cat="ai">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/DTF_C_DYNAMIC_79_2026_0410_v1.jpg">
+        <source src="videos/tiles/DTF_C_DYNAMIC_79_2026_0410_v1.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Jiffy</span>DTF AI</div>
+    </a>
+
+    <!-- Vertical / personal closing block -->
+    <a class="tile tall" href="#" data-cat="social ai">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/ArenaClub_02_Nug_2025_0418_02C_Tim_v01%209x16.jpg">
+        <source src="videos/tiles/ArenaClub_02_Nug_2025_0418_02C_Tim_v01%209x16.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Arena Club</span>TikTok</div>
+    </a>
+    <a class="tile vertical" href="#" data-cat="ai personal">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/Zolloro_01_2026_0508_v1%209x16.jpg">
+        <source src="videos/tiles/Zolloro_01_2026_0508_v1%209x16.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Zolloro</span>Samurai AI</div>
+    </a>
+    <a class="tile tall" href="#" data-cat="social">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/FlamnHot_Doritos_SnapAd_FollowUp_2022_0211_v02.2.jpg">
+        <source src="videos/tiles/FlamnHot_Doritos_SnapAd_FollowUp_2022_0211_v02.2.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Doritos</span>Flamin' Hot</div>
+    </a>
+
+    <!-- Closing brand block -->
+    <a class="tile square" href="#" data-cat="design film">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/kit_kat_trees_v1%20%281080p%29.jpg">
+        <source src="videos/tiles/kit_kat_trees_v1%20%281080p%29.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Kit Kat</span>Trees</div>
+    </a>
+    <a class="tile landscape" href="#" data-cat="film design">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/sleep_cocoa_v1%20%281080p%29.jpg">
+        <source src="videos/tiles/sleep_cocoa_v1%20%281080p%29.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Sleep Cocoa</span>Brand Spot</div>
+    </a>
+    <a class="tile square" href="#" data-cat="design social">
+      <video class="tile-video" autoplay muted loop playsinline preload="metadata" poster="videos/posters/instagram_v1%20%281080p%29.jpg">
+        <source src="videos/tiles/instagram_v1%20%281080p%29.mp4" type="video/mp4">
+      </video>
+      <div class="play-pulse"></div>
+      <div class="tile-label"><span class="client">Instagram</span>Meta Ad</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <span>SMILE 2</span><span class="dot">●</span>
+    <span>SCREAM</span><span class="dot">●</span>
+    <span>TMNT</span><span class="dot">●</span>
+    <span>DORITOS</span><span class="dot">●</span>
+    <span>DRAFTKINGS</span><span class="dot">●</span>
+    <span>HYUNDAI</span><span class="dot">●</span>
+    <span>GENESIS</span><span class="dot">●</span>
+    <span>INSTAGRAM</span><span class="dot">●</span>
+    <span>TIKTOK</span><span class="dot">●</span>
+    <span>PARAMOUNT</span><span class="dot">●</span>
+    <span>UNIVERSAL</span><span class="dot">●</span>
+    <span>MARVEL</span><span class="dot">●</span>
+    <span>FRONTIER</span><span class="dot">●</span>
+    <span>SUPER BOWL LII</span><span class="dot">●</span>
+    <span>SUPER BOWL LIII</span><span class="dot">●</span>
+    <span>SMILE 2</span><span class="dot">●</span>
+    <span>SCREAM</span><span class="dot">●</span>
+    <span>TMNT</span><span class="dot">●</span>
+    <span>DORITOS</span><span class="dot">●</span>
+    <span>DRAFTKINGS</span><span class="dot">●</span>
+    <span>HYUNDAI</span><span class="dot">●</span>
+    <span>GENESIS</span><span class="dot">●</span>
+    <span>INSTAGRAM</span><span class="dot">●</span>
+    <span>TIKTOK</span><span class="dot">●</span>
+    <span>PARAMOUNT</span><span class="dot">●</span>
+    <span>UNIVERSAL</span><span class="dot">●</span>
+    <span>MARVEL</span><span class="dot">●</span>
+    <span>FRONTIER</span><span class="dot">●</span>
+    <span>SUPER BOWL LII</span><span class="dot">●</span>
+    <span>SUPER BOWL LIII</span><span class="dot">●</span>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-closer">Like something you saw?</div>
+      <div class="foot-contact">
+        <a href="mailto:thomas.james.stephen@gmail.com?subject=Let's%20work%20together">Let's<br>talk<span style="color:var(--orange)">.</span></a>
+      </div>
+    </div>
+    <div class="foot-side">
+      <div><a href="mailto:thomas.james.stephen@gmail.com">thomas.james.stephen@gmail.com</a></div>
+      <div><a href="tel:+13105931942">310 · 593 · 1942</a></div>
+      <div>Based in South Florida · Working worldwide</div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>Stephen James Thomas © 2026 · All rights reserved</div>
+    <div>Coded with care · Hosted on Vercel</div>
+  </div>
+</footer>
+
+<script>
+  // reveal animation
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  // nav scroll state
+  const nav = document.querySelector('.site-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+  // filter logic
+  const tiles = document.querySelectorAll('#workGrid .tile');
+  const totalTiles = tiles.length;
+  const showingNum = document.getElementById('showingNum');
+  const visibleCount = document.getElementById('visibleCount');
+  // set total display
+  document.querySelectorAll('.filter-count').forEach(el => {
+    el.innerHTML = `Showing <strong id="showingNum">${totalTiles}</strong> of ${totalTiles}`;
+  });
+  visibleCount.textContent = totalTiles + ' pieces';
+
+  document.querySelectorAll('#filters button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#filters button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.filter;
+      let visible = 0;
+      tiles.forEach(t => {
+        const cats = (t.dataset.cat || '').split(' ');
+        const show = cat === 'all' || cats.includes(cat);
+        t.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      const sn = document.getElementById('showingNum');
+      if (sn) sn.textContent = visible;
+      visibleCount.textContent = visible + (visible === 1 ? ' piece' : ' pieces');
+    });
+  });
+
+  // close mobile menu on link tap
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>

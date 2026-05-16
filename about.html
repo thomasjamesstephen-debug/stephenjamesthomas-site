@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Stephen James Thomas</title>
+<meta name="description" content="Stephen James Thomas. AI Filmmaker, director, and creative lead. USC MFA Film & Television Production. Cal Poly San Luis Obispo BS Animal Science. Art Institute of Los Angeles BS Media & Graphic Design. Nine years at R&CPMK and MediaNug. Now shipping AI ads at Jiffy Shirts.">
+<meta property="og:title" content="About — Stephen James Thomas">
+<meta property="og:description" content="Cinematic taste, generative speed. Built end-to-end. Built for now.">
+<meta property="og:image" content="https://img1.wsimg.com/isteam/ip/c4a8f62f-b64a-4068-813d-58c42c853ae6/hf_20260301_074450_5ca5c105-e984-43ba-be63-c4.jpeg">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A'/%3E%3Ctext x='50' y='72' font-family='Arial Black' font-size='80' fill='%23FF4A1C' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ============ ABOUT PAGE ============ */
+  .about-hero {
+    padding: 160px var(--pad-x) 60px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    border-bottom: 1px solid var(--grey);
+  }
+  .about-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(54px, 9vw, 168px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  .about-hero h1 .accent { color: var(--orange); }
+  .about-photo {
+    aspect-ratio: 3/4;
+    /* Portrait of Stephen — drop a new image at videos/SJT Website 2026 Stills/ and update this URL to swap */
+    background-image: url('videos/SJT%20Website%202026%20Stills/SJT%20profile%20Look%20Right.jpg');
+    background-size: cover; background-position: center;
+    filter: grayscale(100%) contrast(1.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .about-photo::after {
+    content: ''; position: absolute; inset: 0;
+    background: var(--orange);
+    mix-blend-mode: color;
+    opacity: 0.22;
+  }
+  .about-photo .photo-meta {
+    position: absolute; left: 16px; bottom: 16px; z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--cream);
+    background: rgba(0,0,0,0.6);
+    padding: 6px 10px;
+    border-left: 2px solid var(--orange);
+  }
+  .about-photo .photo-meta span {
+    display: block; color: var(--orange); font-size: 9px; margin-bottom: 2px;
+  }
+
+  /* bio section */
+  .bio-section {
+    padding: 100px var(--pad-x);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 80px;
+    border-bottom: 1px solid var(--grey);
+  }
+  .bio-section .label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--orange);
+    padding-top: 12px;
+  }
+  .bio-section .body {
+    max-width: 740px;
+  }
+  .bio-section p {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.5vw, 22px);
+    line-height: 1.55;
+    color: var(--cream);
+    margin-bottom: 28px;
+  }
+  .bio-section p strong { color: var(--orange); font-weight: 700; }
+  .bio-section p + p { color: var(--cream-dim); }
+  .bio-section p:last-child { margin-bottom: 0; }
+
+  /* manifesto pull quote */
+  .manifesto {
+    padding: 120px var(--pad-x);
+    text-align: center;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--grey);
+  }
+  .manifesto .label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 40px;
+  }
+  .manifesto blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .manifesto blockquote .em { color: var(--orange); }
+
+  /* experience timeline */
+  .timeline-section {
+    padding: 100px var(--pad-x);
+    border-bottom: 1px solid var(--grey);
+  }
+  .timeline-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 96px);
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin-bottom: 60px;
+  }
+  .timeline-section h2 .num {
+    color: var(--orange); font-size: 0.4em; vertical-align: super;
+    font-family: var(--font-mono);
+  }
+  .role {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    padding: 40px 0;
+    border-top: 1px solid var(--grey);
+    align-items: start;
+  }
+  .role:last-child { border-bottom: 1px solid var(--grey); }
+  .role .when {
+    font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--orange);
+  }
+  .role .when .span-years {
+    display: block;
+    color: var(--cream-dim);
+    margin-top: 6px;
+    font-size: 10px;
+  }
+  .role h3 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 40px);
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .role .place {
+    font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 20px;
+  }
+  .role ul {
+    list-style: none; padding: 0;
+  }
+  .role ul li {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--cream);
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .role ul li::before {
+    content: '·';
+    color: var(--orange);
+    position: absolute;
+    left: 0; top: 0;
+    font-weight: 700;
+  }
+
+  /* education + tools */
+  .ed-tools {
+    padding: 100px var(--pad-x);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    border-bottom: 1px solid var(--grey);
+  }
+  .panel h2 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 64px);
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+  .panel h2 .num {
+    color: var(--orange); font-size: 0.4em; vertical-align: super;
+    font-family: var(--font-mono);
+  }
+  .panel .row {
+    padding: 24px 0;
+    border-top: 1px solid var(--grey);
+  }
+  .panel .row:last-child { border-bottom: 1px solid var(--grey); }
+  .panel .row .top {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 1.8vw, 24px);
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .panel .row .bot {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--cream-dim);
+  }
+  .panel .row .bot .accent { color: var(--orange); }
+
+  /* CTA */
+  .cta-band {
+    padding: 120px var(--pad-x);
+    text-align: center;
+  }
+  .cta-band .label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 32px;
+  }
+  .cta-band h2 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 8vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+  .cta-band h2 .accent { color: var(--orange); }
+  .cta-band .cta-actions {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  }
+
+  /* tablet (iPad portrait / small laptop) */
+  @media (max-width: 1024px) {
+    .about-hero { padding: 140px 32px 50px; gap: 50px; }
+    .bio-section { padding: 80px 32px; grid-template-columns: 160px 1fr; gap: 50px; }
+    .manifesto, .timeline-section, .ed-tools, .cta-band { padding: 80px 32px; }
+    .role { grid-template-columns: 180px 1fr; gap: 32px; }
+  }
+
+  @media (max-width: 900px) {
+    .about-hero { padding: 110px var(--pad-x-mobile) 40px; grid-template-columns: 1fr; gap: 32px; }
+    .about-photo { max-width: 400px; }
+    .bio-section { padding: 60px var(--pad-x-mobile); grid-template-columns: 1fr; gap: 24px; }
+    .manifesto { padding: 60px var(--pad-x-mobile); }
+    .timeline-section { padding: 60px var(--pad-x-mobile); }
+    .role { grid-template-columns: 1fr; gap: 12px; }
+    .ed-tools { padding: 60px var(--pad-x-mobile); grid-template-columns: 1fr; }
+    .cta-band { padding: 80px var(--pad-x-mobile); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="mark" href="index.html">SJT<span class="dot">.</span></a>
+  <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">Menu</button>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="about.html" class="active">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ============ ABOUT HERO ============ -->
+<section class="about-hero">
+  <h1 data-reveal>About<br><span class="accent">·</span> Stephen.</h1>
+  <div class="about-photo" data-reveal data-reveal-delay="1">
+    <div class="photo-meta">
+      <span>Florida · 2025</span>
+      Subject 01
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIO ============ -->
+<section class="bio-section">
+  <div class="label" data-reveal>The Story</div>
+  <div class="body">
+    <p data-reveal>I'm an <strong>AI-first creative director and filmmaker</strong> specializing in cinematic, social-native advertising. I blend generative AI with traditional craft to build bold visual worlds — fast — from concept through finished spot, without sacrificing taste or story.</p>
+
+    <p data-reveal data-reveal-delay="1">My work focuses on character, tone, and spectacle, using AI as a creative accelerant rather than a gimmick. I have a background in film, design, and high-volume branded content. I help brands and agencies move quicker, think bigger, and ship work that actually looks finished.</p>
+
+    <p data-reveal data-reveal-delay="2">The path here is unusual on purpose: USC MFA in Film & Television, a Cal Poly degree in Animal Science (yes, really), and a degree in Media & Graphic Design from Art Institute LA. Three lenses for the same problem — story, system, surface. Nine years at <strong>R&amp;CPMK</strong> and <strong>MediaNug</strong> directing concept, edit, and design for global brands and theatrical campaigns. Now an <strong>AI Filmmaker</strong> at Jiffy Shirts, shipping ~40 AI ads a month with full media-buying attribution attached.</p>
+
+    <p data-reveal data-reveal-delay="3">If you need someone who can sit in the room with a Hollywood producer in the morning and a SoFla restaurant owner in the afternoon and ship work that respects both — that's the job I want.</p>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto">
+  <div class="label" data-reveal>Manifesto</div>
+  <blockquote data-reveal data-reveal-delay="1">
+    Most AI <span class="em">creators</span> don't know cinema.<br>
+    Most <span class="em">cinema people</span> don't ship 40 ads a month.<br>
+    Almost nobody does <span class="em">both</span> with a<br>media-buyer's brain attached.
+  </blockquote>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="timeline-section">
+  <h2 data-reveal><span class="num">01</span> Experience</h2>
+
+  <div class="role" data-reveal>
+    <div class="when">Now<br><span class="span-years">March 2026 — Present</span></div>
+    <div>
+      <h3>AI Content Creator</h3>
+      <div class="place">Jiffy Shirts</div>
+      <ul>
+        <li>Produce ~40 AI-generated ads/month; concept, direct, execute end-to-end with generative tools + Adobe.</li>
+        <li>Upload, launch, and structure campaigns across Meta / Google / YouTube; targeting, keywords, budgets, copy, tracking.</li>
+        <li>Rapidly test hooks, visuals, messaging, and formats; analyze watch time, CTR, CVR, engagement, and lead quality.</li>
+        <li>Continuously pivot strategy based on performance; A/B test creatives, audiences, and landing pages.</li>
+        <li>Scale winning concepts via budget increases, audience expansion, new variations, geos, and channels.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="role" data-reveal>
+    <div class="when">Lead<br><span class="span-years">Nov 2021 — Feb 2026</span></div>
+    <div>
+      <h3>Project Manager · Lead Editor · AI Creative Lead</h3>
+      <div class="place">MediaNug</div>
+      <ul>
+        <li>Originated and shaped campaign concepts, visual worlds, and storytelling frameworks across social, trailer, and brand content.</li>
+        <li>Defined creative direction and editorial voice for Instagram, TikTok, DraftKings, Doritos, Facebook, Paramount, and Universal.</li>
+        <li>Led and directed editors, designers, and cross-functional teams to execute against a unified visual and narrative vision.</li>
+        <li>Oversaw pacing, tone, and cinematic quality for trailers, promos, and social campaigns — <em>Smile 2, TMNT, Scream</em>.</li>
+        <li>Pioneered generative AI for concepting and production (Higgsfield, Nano Banana, custom pipelines) for rapid ideation and scalable asset creation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="role" data-reveal>
+    <div class="when">Foundation<br><span class="span-years">Sep 2017 — Oct 2021</span></div>
+    <div>
+      <h3>Senior Graphic Designer · Commercial Director</h3>
+      <div class="place">R&amp;CPMK</div>
+      <ul>
+        <li>Led concept and visual direction for large-scale experiential, video, and social campaigns for Hyundai, Genesis, Marvel, and Super Bowl LII &amp; LIII.</li>
+        <li>Directed design teams from ideation through execution — premium craft, strong brand storytelling, cohesive visual systems.</li>
+        <li>Served as Commercial Director for Frontier Communications, shaping national campaign creative end-to-end.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION & TOOLS ============ -->
+<section class="ed-tools">
+  <div class="panel">
+    <h2 data-reveal><span class="num">02</span> Education</h2>
+    <div class="row" data-reveal>
+      <div class="top">USC</div>
+      <div class="bot"><span class="accent">MFA</span> · Film &amp; Television Production</div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="top">Cal Poly · San Luis Obispo</div>
+      <div class="bot"><span class="accent">BS</span> · Animal Science</div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="top">Art Institute · Los Angeles</div>
+      <div class="bot"><span class="accent">BS</span> · Media &amp; Graphic Design</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2 data-reveal><span class="num">03</span> Tools</h2>
+    <div class="row" data-reveal>
+      <div class="top">Video &amp; Motion</div>
+      <div class="bot">Premiere Pro · After Effects · CapCut</div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="top">Generative AI</div>
+      <div class="bot">Kling · Veo 3.1 · Higgsfield · Nano Banana · Custom Pipelines</div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="top">Design</div>
+      <div class="bot">Photoshop · Illustrator · InDesign</div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="top">Pitching</div>
+      <div class="bot">Keynote · PowerPoint</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <span>SMILE 2</span><span class="dot">●</span>
+    <span>SCREAM</span><span class="dot">●</span>
+    <span>TMNT</span><span class="dot">●</span>
+    <span>DORITOS</span><span class="dot">●</span>
+    <span>DRAFTKINGS</span><span class="dot">●</span>
+    <span>HYUNDAI</span><span class="dot">●</span>
+    <span>GENESIS</span><span class="dot">●</span>
+    <span>INSTAGRAM</span><span class="dot">●</span>
+    <span>TIKTOK</span><span class="dot">●</span>
+    <span>PARAMOUNT</span><span class="dot">●</span>
+    <span>UNIVERSAL</span><span class="dot">●</span>
+    <span>MARVEL</span><span class="dot">●</span>
+    <span>FRONTIER</span><span class="dot">●</span>
+    <span>SUPER BOWL LII</span><span class="dot">●</span>
+    <span>SUPER BOWL LIII</span><span class="dot">●</span>
+    <span>SMILE 2</span><span class="dot">●</span>
+    <span>SCREAM</span><span class="dot">●</span>
+    <span>TMNT</span><span class="dot">●</span>
+    <span>DORITOS</span><span class="dot">●</span>
+    <span>DRAFTKINGS</span><span class="dot">●</span>
+    <span>HYUNDAI</span><span class="dot">●</span>
+    <span>GENESIS</span><span class="dot">●</span>
+    <span>INSTAGRAM</span><span class="dot">●</span>
+    <span>TIKTOK</span><span class="dot">●</span>
+    <span>PARAMOUNT</span><span class="dot">●</span>
+    <span>UNIVERSAL</span><span class="dot">●</span>
+    <span>MARVEL</span><span class="dot">●</span>
+    <span>FRONTIER</span><span class="dot">●</span>
+    <span>SUPER BOWL LII</span><span class="dot">●</span>
+    <span>SUPER BOWL LIII</span><span class="dot">●</span>
+  </div>
+</div>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band">
+  <div class="label" data-reveal>Selected projects · 2026</div>
+  <h2 data-reveal data-reveal-delay="1">Make something<br>unforgettable<span class="accent">.</span></h2>
+  <div class="cta-actions" data-reveal data-reveal-delay="2">
+    <a class="btn btn-primary" href="mailto:thomas.james.stephen@gmail.com?subject=Let's%20work%20together">Email Stephen</a>
+    <a class="btn" href="tel:+13105931942">310 · 593 · 1942</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-closer">Direct line · 2026</div>
+      <div class="foot-contact">
+        <a href="mailto:thomas.james.stephen@gmail.com">thomas.james<br>.stephen@gmail.com</a>
+      </div>
+    </div>
+    <div class="foot-side">
+      <div><a href="tel:+13105931942">310 · 593 · 1942</a></div>
+      <div>Based in South Florida · Working worldwide</div>
+      <div>Direction · Edit · AI pipeline · Creative direction · Social · Paid media</div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>Stephen James Thomas © 2026 · All rights reserved</div>
+    <div>Coded with care · Hosted on Vercel</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  const nav = document.querySelector('.site-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
