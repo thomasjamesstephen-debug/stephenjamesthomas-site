@@ -161,6 +161,7 @@ nav.site-nav.scrolled { padding: 14px var(--pad-x); }
 .bento {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: dense;
   gap: 12px;
 }
 .tile {
