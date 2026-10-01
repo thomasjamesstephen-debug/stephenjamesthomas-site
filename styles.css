@@ -198,7 +198,8 @@ nav.site-nav.scrolled { padding: 14px var(--pad-x); }
 }
 /* auto-apply the gradient overlay on any tile that has a video child,
    so label text stays readable on top of moving content */
-.tile:has(video.tile-video)::after {
+.tile:has(video.tile-video)::after,
+.tile:has(img.tile-img)::after {
   content: ''; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(180deg, transparent 35%, rgba(10,10,10,.85) 100%);
   pointer-events: none;
